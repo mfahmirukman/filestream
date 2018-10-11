@@ -1,113 +1,117 @@
 <html>
-    <head>
-        <title>Stream Movie</title>
+<head>
+    <title>Stream Movie</title>
 
-        <link rel="icon" href="https://banner2.kisspng.com/20180420/tvw/kisspng-computer-icons-movie-icon-5ad9d929cca748.4776348615242263458383.jpg">
+    <link rel="icon" href="https://banner2.kisspng.com/20180420/tvw/kisspng-computer-icons-movie-icon-5ad9d929cca748.4776348615242263458383.jpg">
 
-        <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
 
-        <style type="text/css">
-            h1{
-                color: white;
-            }
+    <style type="text/css">
+    h1{
+        color: white;
+    }
 
-            h2{
-                color: white;
-            }
+    h2{
+        color: white;
+    }
 
-            body{
-                background-repeat:no-repeat;
-                background-size:cover;
-            }
+    body{
+        background-repeat:no-repeat;
+        background-size:cover;
+    }
 
-            .container-fluid {
-                position: fixed;
-                height: 100%;
-                width: 100%;
-            }
+    .container-fluid {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+    }
 
-            #posterContainer{
-                top: 25px;
-            }
+    #posterContainer{
+        top: 25px;
+    }
 
-            #movieGallery {
-                position: absolute; 
-                top: 10px;
-                bottom: 10px;
-                /*z-index: -100;*/
-                background-size: cover;
-                overflow: hidden;
-            }
+    #movieGallery {
+        position: absolute; 
+        /*top: 10px;*/
+        /*bottom: 10px;*/
+        margin: 0 auto;
+        /*z-index: -100;*/
+        background-size: cover;
+        overflow: hidden;
+    }
 
-            .row{
-                height: 100px;
-            }
-        </style>
+    .row{
+        height: 100%;
+    }
+</style>
 
-        <!-- DevExtreme themes -->
-        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/18.1.6/css/dx.common.css" />
-        <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/18.1.6/css/dx.light.css" />
-         
-        <!-- DevExtreme library -->
-        <script type="text/javascript" src="https://cdn3.devexpress.com/jslib/18.1.6/js/dx.all.js"></script>
-    </head>
-    <body background="https://i.ytimg.com/vi/tsjd7xdgfjA/maxresdefault.jpg">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                    <div class="row h-100" style="height:250px">
-                        <center><h1><b>Welcome to FileStream</b></h1></center>
-                    </div>
-                    <div class="row h-100">
-                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                            <center><h2><b>Watch Movies Here !</b></h2></center>
-                        </div>
-                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                    </div>
-                    <div class="row h-100"> </div>
+<!-- DevExtreme themes -->
+<link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/18.1.6/css/dx.common.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/18.1.6/css/dx.light.css" />
+
+<!-- DevExtreme library -->
+<script type="text/javascript" src="https://cdn3.devexpress.com/jslib/18.1.6/js/dx.all.js"></script>
+</head>
+<body background="https://i.ytimg.com/vi/tsjd7xdgfjA/maxresdefault.jpg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="row h-100">
+                    <center><h1><b>Welcome to FileStream</b></h1></center>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="posterContainer">
-                    <div id="movieGallery">
-                
+                <div class="row h-100">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                        <center><h2><b>Watch Movies Here !</b></h2></center>
                     </div>
-                </div>        
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                </div>
+                <div class="row h-100"> </div>
             </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="posterContainer">
+                <div class="row">
+                    <div id="movieGallery">
+
+                    </div>
+                </div>
+            </div>        
         </div>
+    </div>
 
-        <script>
-            var config = getConfig();
-            var width = $("#posterContainer").width() * 0.6;
-            var height = $(window).height() * 0.9;
-            $(".container").css("height", $(window).height());
+    <script>
+        $(".row.h-100").css("height", $(window).height() * 0.33);
+        var config = getConfig();
+        var width = $("#posterContainer").width() * 0.6;
+        var height = $(window).height() * 0.9;
+        $(".container").css("height", $(window).height());
 
-            var movieGallery = $("#movieGallery").dxGallery({
-                animationDuration: 1000,
-                dataSource: dataMoviePosters(),
-                disabled: false,
-                height: height,
-                loop: true,
-                stretchImages: true,
-                onItemClick: function(e) {
-                    var itemName = e.itemData;
-                    itemName = itemName.replace(config.postersPath, "");
-                    itemName = itemName.replace(".jpg", "");
+        var movieGallery = $("#movieGallery").dxGallery({
+            animationDuration: 1000,
+            dataSource: dataMoviePosters(),
+            disabled: false,
+            height: height,
+            loop: true,
+            stretchImages: true,
+            onItemClick: function(e) {
+                var itemName = e.itemData;
+                itemName = itemName.replace(config.postersPath, "");
+                itemName = itemName.replace(".jpg", "");
 
-                    window.location = window.location.origin + "/trailer/" + itemName;
-                },
+                window.location = window.location.origin + "/trailer/" + itemName;
+            },
                 // showNavButtons: true,
                 slideshowDelay: 2500,
                 swipeEnabled: true,
@@ -115,65 +119,82 @@
                 width: width
             }).dxGallery("instance");
 
-            $(window).resize(function(){
-                // debugger;
-                var windowWidth = $(window).width();
-                var windowHeight = $(window).height();
-                // windowWidth & windowHeight are automatically updated when the browser size is modified
-                width = $("#posterContainer").width() * 0.6;
-                height = $(window).height() * 0.9;
-                $("#movieGallery").dxGallery({
-                    height: height,
-                    width: width
-                });
+        movieGallery.registerKeyHandler("leftArrow", function(){
+            movieGallery.prevItem(true);
+        });
+
+        movieGallery.registerKeyHandler("rightArrow", function(){
+            movieGallery.nextItem(true);
+        });
+
+
+
+        $(window).resize(function(){
+            // debugger;
+            var windowWidth = $(window).width();
+            var windowHeight = $(window).height();
+            // windowWidth & windowHeight are automatically updated when the browser size is modified
+            width = $("#posterContainer").width() * 0.6;
+            height = $(window).height() * 0.9;
+            $("#movieGallery").dxGallery({
+                height: height,
+                width: width
+            });
+        });
+
+        function dataMoviePosters() {
+            var data = [];
+                //
+            $.ajax({
+                contentType: "jpg",
+                async: false,
+                method: "GET",
+                url: window.location.origin + "/gallery",
+                // data: { 'LosId': LosId },
+                success: function (e) {
+                    var posters = JSON.parse(e);
+                    posters.forEach(function(item, index) {
+                        item = window.location.origin + item;
+                    })
+                    
+                    data = posters;
+                },
+                error: function (xhr, status, error) {
+
+                }
             });
 
-            function dataMoviePosters() {
-                var data = [];
-                //
-                $.ajax({
-                    contentType: "jpg",
-                    async: false,
-                    method: "GET",
-                    url: window.location.origin + "/gallery",
-                    // data: { 'LosId': LosId },
-                    success: function (e) {
-                        var posters = JSON.parse(e);
-                        posters.forEach(function(item, index) {
-                            item = window.location.origin + item;
-                        })
-                        
-                        data = posters;
-                    },
-                    error: function (xhr, status, error) {
+            return data;
+        }
 
-                    }
-                });
+        function getConfig() {
+            var data = [];
+            $.ajax({
+                contentType: "jpg",
+                async: false,
+                method: "GET",
+                url: window.location.origin + "/config/",
+                // data: { 'LosId': LosId },
+                success: function (e) {
+                    var obj = JSON.parse(e);
+                    data = obj;
+                },
+                error: function (xhr, status, error) {
 
-                return data;
+                }
+            });
+
+            return data;
+        }
+
+        $(document).keydown(function(e) {
+            if(e.keyCode == 37) { // left
+                movieGallery.prevItem(true);
             }
-
-            function getConfig() {
-                var data = [];
-                //
-                $.ajax({
-                    contentType: "jpg",
-                    async: false,
-                    method: "GET",
-                    url: window.location.origin + "/config/",
-                    // data: { 'LosId': LosId },
-                    success: function (e) {
-                        var obj = JSON.parse(e);
-                        data = obj;
-                    },
-                    error: function (xhr, status, error) {
-
-                    }
-                });
-
-                return data;
+            else if(e.keyCode == 39) { // right
+                movieGallery.nextItem(true);
             }
-
-        </script>
-    </body>
+        });
+    </script>
+</body>
 </html>
