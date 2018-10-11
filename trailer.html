@@ -1,0 +1,79 @@
+<html>
+<head>
+    <title>Stream Movie</title>
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <style type="text/css">
+        h1{
+            color: white;
+        }
+
+        h2{
+            color: white;
+        }
+
+        body{
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+
+        #videoPlayer {
+            position: absolute; 
+            top: 50px;
+            right: 0; 
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+            width: auto; 
+            height: auto; 
+            /*z-index: -100;*/
+            background-size: cover;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body background="https://i.ytimg.com/vi/tsjd7xdgfjA/maxresdefault.jpg">
+    <center><h1 id="videoTitle"><h1></center>
+    <video id="videoPlayer" controls >
+        
+    </video>
+
+    <!-- <button id="toggleButton">Start/Stop</button> -->
+    
+    <script>
+        var movieName = window.location.pathname;
+        movieName = movieName.replace("/trailer/", "");
+        
+        $("#videoTitle").html(decodeURI(movieName).replace(".mp4", ""));
+
+        var movieSource = window.location.origin + "/video/" + movieName;
+        var subtitleName = window.location.origin + "/subtitle/" + movieName;
+
+        var source = '<source src="' + movieSource + '" type="video/mp4">';
+        var subtitle = '<track src="' + subtitleName + '" kind="subtitles" srclang="id">';
+        $("#videoPlayer").append(source).append(subtitle);
+
+        $("title").text("");
+        $("#videoPlayer").css("width", $(window).width());
+        $("#videoPlayer").css("height", $(window).height());
+
+
+        $(window).resize(function(){
+            // debugger;
+            var windowWidth = $(window).width();
+            var windowHeight = $(window).height();
+            // windowWidth & windowHeight are automatically updated when the browser size is modified
+            $("#videoPlayer").css("width", windowWidth);
+            $("#videoPlayer").css("height", windowHeight);
+        });
+
+        $(document).ready(function(){
+            var movieName = window.location.pathname;
+            movieName = movieName.replace("/trailer/", "");
+            $("title").html(movieName.replace(".mp4", ""))
+        })
+   </script>
+</body>
+</html>
