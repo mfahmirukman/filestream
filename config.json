@@ -6,8 +6,8 @@
 		"subtitle": "/subtitle/",
 		"config": "/config/"
 	},
-	"postersPath":"/Videos/MOVIES/assets/posters/",
-	"trailersPath":"/Videos/MOVIES/",
+	"postersPath":"/assets/posters/",
+	"trailersPath":"/MOVIE/",
 	"mime":{
 		"html":"text/html",
 		"txt":"text/plain",

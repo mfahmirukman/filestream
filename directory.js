@@ -10,7 +10,7 @@ const directory = {
 		    var file = path.join(config.harddisk, params);
 		    file = decodeURI(file);
 		    var hd = path.join(config.harddisk);
-		    if (file.indexOf(hd + path.sep) !== 0) {
+		    if (file.indexOf(hd) !== 0) {
 		        return res.status(403).end('Forbidden');
 		    }
 		    var type = config.mime[path.extname(file).slice(1)] || 'text/plain';
@@ -60,7 +60,7 @@ const directory = {
 	getVideos : function(req, res) {
 		try {
 			var filename = decodeURI(req.params[0]);
-			var filePath = path.join(config.harddisk, config.trailersPath, filename, filename);
+			var filePath = path.join(config.harddisk, filename, filename);
 			
 			for(var i = 0; i < config.fileExtensions.length; i++) {
 				var check = JSON.stringify(filePath);

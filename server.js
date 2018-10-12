@@ -57,7 +57,7 @@ var server = app.listen(80, function(){
 	try {
 		var host = server.address().address;
 		var port = server.address().port;
-		// console.log('server', server);
+		
 		var string = "Example app listening at http://%s";
 		if(port == 80) {
 			console.log(string, ip.address());
