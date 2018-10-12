@@ -1,7 +1,7 @@
 const config = {
-	harddisk: "C:/Users/muham",
-	postersPath : "/Videos/posters/",
-	trailersPath : "/Videos/",
+	harddisk: "C:/Users/nugimedico",
+	postersPath : "/Videos/MOVIES/assets/posters/",
+	trailersPath : "/Videos/MOVIES/",
 	mime : {
 	    html: 'text/html',
 	    txt: 'text/plain',

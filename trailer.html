@@ -29,7 +29,7 @@
             background-repeat:no-repeat;
             background-size:cover;
         }
-
+		
         #videoPlayer {
             position: relative; 
             /*border: 5px solid black;*/
@@ -80,12 +80,17 @@
         $("title").text("");
         $("#videoPlayer").css("width", $("#videoContainer").width());
         $("#videoPlayer").css("height", $("#videoContainer").height());
+		
+		var height = $("#videoContainer").height();
 
-
-        $(window).resize(function(){
-
-            var windowWidth = $(window).width();
-            var windowHeight = $(window).height();
+        $(window).resize(function(a,b,c){
+            var windowWidth = $("#videoContainer").width();
+            var windowHeight = $("#videoContainer").height();
+			if(windowHeight == 1) {
+				windowHeight = height;
+			}
+			console.log('windowWidth', windowWidth);
+			console.log('windowHeight', windowHeight);
             // windowWidth & windowHeight are automatically updated when the browser size is modified
             $("#videoPlayer").css("width", windowWidth);
             $("#videoPlayer").css("height", windowHeight);
@@ -110,9 +115,23 @@
                 } else {
                     video.pause();
                 }
-            }
+            } else if(e.keyCode == 70) {
+				var video = $("#videoPlayer")[0];
+				var height = $("#videoPlayer").height();
+				var width = $("#videoPlayer").width();
+				
+				if(height == $(window).height() && width == $(window).width()) {
+					video.webkitExitFullscreen();
+				} else {
+					video.webkitRequestFullscreen();
+				}
+				
+			} else if(e.keyCode == 8) {
+				window.history.back();
+			}
         });
-
+		
+	
         function rightArrow(value) {
             var video = $("#videoPlayer")[0];
             video.currentTime += value;

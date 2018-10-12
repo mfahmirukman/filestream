@@ -118,10 +118,10 @@ const directory = {
 		try {
 			var params = decodeURI(req.params[0]);
 		    // var file = path.join(config.harddisk, params.replace(/\/$/, '/index.html'));
-		    var file = path.join(config.harddisk, params, params);
+		    var file = path.join(config.harddisk, config.trailersPath, params, params);
 		    file = decodeURI(file);
 		    file += config.subtitleExtensions.webvtt;
-		    // console.log('file', file);
+		    console.log('file', file);
 		    var hd = path.join(config.harddisk);
 		    if (file.indexOf(hd + path.sep) !== 0) {
 		        return res.status(403).end('Forbidden');
