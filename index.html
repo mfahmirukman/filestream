@@ -33,6 +33,11 @@
         background-size:cover;
     }
 
+    .center {
+        margin: 0 auto;
+        width: 80%;
+    }
+
     .container-fluid {
         position: fixed;
         height: 100%;
@@ -40,15 +45,15 @@
     }
 
     #posterContainer{
-        top: 25px;
+        top: 50px;
+        margin: 0 auto;
     }
 
     #movieGallery {
-        position: absolute; 
+        /*position: absolute; */
         /*top: 10px;*/
         /*bottom: 10px;*/
         margin: 0 auto;
-        /*z-index: -100;*/
         background-size: cover;
         overflow: hidden;
     }
@@ -68,33 +73,38 @@
 <body background="https://i.ytimg.com/vi/tsjd7xdgfjA/maxresdefault.jpg">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <div class="row h-100">
-                    <center><h1><b>Welcome to FileStream</b></h1></center>
-                </div>
-                <div class="row h-100">
-                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                        <center><h2><b>Watch Movies Here !</b></h2></center>
+            <div class="center">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="row h-100">
+                        <center><h1><b>Welcome to FileStream</b></h1></center>
                     </div>
-                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                    <div class="row h-100">
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                            <center><h2><b>Watch Movies Here !</b></h2></center>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+                    </div>
+                    <div class="row h-100"> </div>
                 </div>
-                <div class="row h-100"> </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="posterContainer">
-                <div class="row">
-                    <div id="movieGallery">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="posterContainer">
+                    <div class="row">
+                        <div class="center">
+                            <div id="movieGallery">
 
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>        
+                </div>  
+            </div>      
         </div>
     </div>
 
     <script>
         $(".row.h-100").css("height", $(window).height() * 0.33);
+
         var config = getConfig();
-        var width = $("#posterContainer").width() * 0.6;
+        var width = $("#posterContainer").width() * 0.8;
         var height = $(window).height() * 0.9;
         $(".container").css("height", $(window).height());
 
@@ -119,28 +129,19 @@
                 width: width
             }).dxGallery("instance");
 
-        movieGallery.registerKeyHandler("leftArrow", function(){
-            movieGallery.prevItem(true);
-        });
 
-        movieGallery.registerKeyHandler("rightArrow", function(){
-            movieGallery.nextItem(true);
-        });
-
-
-
-        $(window).resize(function(){
-            // debugger;
-            var windowWidth = $(window).width();
-            var windowHeight = $(window).height();
-            // windowWidth & windowHeight are automatically updated when the browser size is modified
-            width = $("#posterContainer").width() * 0.6;
-            height = $(window).height() * 0.9;
-            $("#movieGallery").dxGallery({
-                height: height,
-                width: width
-            });
-        });
+        // $(window).resize(function(){
+        //     // debugger;
+        //     var windowWidth = $(window).width();
+        //     var windowHeight = $(window).height();
+        //     // windowWidth & windowHeight are automatically updated when the browser size is modified
+        //     width = $("#posterContainer").width() * 0.6;
+        //     // height = $(window).height() * 0.9;
+        //     $("#movieGallery").dxGallery({
+        //         // height: height,
+        //         width: width
+        //     });
+        // });
 
         function dataMoviePosters() {
             var data = [];
@@ -193,6 +194,8 @@
             }
             else if(e.keyCode == 39) { // right
                 movieGallery.nextItem(true);
+            } else if(e.keyCode == 13) { // right
+                $("#movieGallery")[0].click()
             }
         });
     </script>

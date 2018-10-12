@@ -5,6 +5,17 @@
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
     <style type="text/css">
         h1{
             color: white;
@@ -20,14 +31,13 @@
         }
 
         #videoPlayer {
-            position: absolute; 
-            top: 50px;
+            position: relative; 
+            /*border: 5px solid black;*/
+            /*top: 50px;*/
             right: 0; 
             bottom: 0;
-            min-width: 100%; 
-            min-height: 100%;
             width: auto; 
-            height: auto; 
+            height: auto;
             /*z-index: -100;*/
             background-size: cover;
             overflow: hidden;
@@ -36,9 +46,20 @@
 </head>
 <body background="https://i.ytimg.com/vi/tsjd7xdgfjA/maxresdefault.jpg">
     <center><h1 id="videoTitle"><h1></center>
-    <video id="videoPlayer" controls >
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-10" id="videoContainer">
+                    <video id="videoPlayer" autoplay>
         
-    </video>
+                    </video>
+                </div>
+                <div class="col-lg-1">
+                </div>
+            </div>
+        </div>
+    
 
     <!-- <button id="toggleButton">Start/Stop</button> -->
     
@@ -57,12 +78,12 @@
         $("#videoPlayer").append(source).append(subtitle);
 
         $("title").text("");
-        $("#videoPlayer").css("width", $(window).width());
-        $("#videoPlayer").css("height", $(window).height());
+        $("#videoPlayer").css("width", $("#videoContainer").width());
+        $("#videoPlayer").css("height", $("#videoContainer").height());
 
 
         $(window).resize(function(){
-            
+
             var windowWidth = $(window).width();
             var windowHeight = $(window).height();
             // windowWidth & windowHeight are automatically updated when the browser size is modified
@@ -73,8 +94,34 @@
         $(document).ready(function(){
             var movieName = window.location.pathname;
             movieName = movieName.replace("/trailer/", "");
-            $("title").html(movieName.replace(".mp4", ""))
+            $("title").html(decodeURI(movieName.replace(".mp4", "")))
         })
+
+        $(document).keydown(function(e) {
+            if(e.keyCode == 37) { // left
+                leftArrow(3);
+            }
+            else if(e.keyCode == 39) { // right
+                rightArrow(3);
+            } else if(e.keyCode == 32) {
+                var video = $("#videoPlayer")[0];
+                if(video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            }
+        });
+
+        function rightArrow(value) {
+            var video = $("#videoPlayer")[0];
+            video.currentTime += value;
+        }
+
+        function leftArrow(value) {
+            var video = $("#videoPlayer")[0];
+            video.currentTime -= value;
+        }   
    </script>
 </body>
 </html>
