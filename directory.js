@@ -34,11 +34,11 @@ const directory = {
 	    files_ = files_ || [];
 	    var files = fs.readdirSync(dir);
 	    for (var i in files){
-	        var name = dir + '/' + files[i];
+	        var name = path.join(config.harddisk, files[i]);
 	        if (fs.statSync(name).isDirectory()){
 	            getFiles(name, files_);
 	        } else {
-	            files_.push(config.postersPath + files[i]);
+	            files_.push(files[i]);
 	        }
 	    }
 	    return files_;
@@ -46,9 +46,10 @@ const directory = {
 
 	getGallery : function(req, res) {
 		try {
-			const path = config.harddisk + config.postersPath;
+			const path = config.harddisk;
 			var loadFiles = directory.getPosterFiles(path)
 			var json = JSON.stringify(loadFiles);
+			console.log(json)
 			res.status(200).end(json);
 		}
 		catch(e) {
