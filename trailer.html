@@ -74,7 +74,7 @@
         var subtitleName = window.location.origin + "/subtitle/" + movieName;
 
         var source = '<source src="' + movieSource + '" type="video/mp4">';
-        var subtitle = '<track src="' + subtitleName + '" kind="subtitles" srclang="id">';
+        var subtitle = '<track src="' + subtitleName + '" kind="subtitles" srclang="id" default>';
         $("#videoPlayer").append(source).append(subtitle);
 
         $("title").text("");
@@ -115,7 +115,7 @@
                 } else {
                     video.pause();
                 }
-            } else if(e.keyCode == 70) {
+            } else if(e.keyCode == 70) { //F
 				var video = $("#videoPlayer")[0];
 				var height = $("#videoPlayer").height();
 				var width = $("#videoPlayer").width();
@@ -126,7 +126,7 @@
 					video.webkitRequestFullscreen();
 				}
 				
-			} else if(e.keyCode == 8) {
+			} else if(e.keyCode == 8) { //backspace
 				window.history.back();
 			}
         });
