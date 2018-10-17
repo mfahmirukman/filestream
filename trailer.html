@@ -74,7 +74,7 @@
         var subtitleName = window.location.origin + "/subtitle/" + movieName;
 
         var source = '<source src="' + movieSource + '" type="video/mp4">';
-        var subtitle = '<track src="' + subtitleName + '" kind="subtitles" srclang="id">';
+        var subtitle = '<track src="' + subtitleName + '" kind="subtitles" srclang="id" default>';
         $("#videoPlayer").append(source).append(subtitle);
 
         $("title").text("");
